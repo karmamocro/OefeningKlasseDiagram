@@ -41,29 +41,16 @@ namespace AlgoritmiekOefeningKlasseDiagram
 
         public void SortProductsByPrice()
         {
-            List<Product> productsCopy = new List<Product>();
-            List<Product> _producten = new List<Product>();
-
-            productsCopy.AddRange(Producten);
-            while (productsCopy.Count > 0)
+            for (int i = 0; i <= Producten.Count - 1; ++i)
             {
-                double max = productsCopy[0].Price;
-                for (int i = 0; i < productsCopy.Count -1; i++)
+                if(i+1 == Producten.Count) { break; } // break out of loop when end is reached.
+                if (Producten[i].Price > Producten[i + 1].Price)
                 {
-                    if (productsCopy[i].Price > max)
-                    {
-                        max = productsCopy[i].Price;
-                        _producten.Add(productsCopy[i]);
-                        productsCopy.Remove(productsCopy[i]);
-                        Console.WriteLine($"Wrote the price: {productsCopy[i].Price} to the list");
-                    }
-                }
-            }
-            
+                    Product tmp = Producten[i];
 
-            foreach (var product in _producten)
-            {
-                Console.WriteLine($"price: {product.Price}");
+                    Producten[i] = Producten[i + 1]; // shifting 2 positions
+                    Producten[i + 1] = tmp;
+                }
             }
         }
     }
