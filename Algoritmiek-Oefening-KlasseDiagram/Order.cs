@@ -41,7 +41,22 @@ namespace Algoritmiek_Oefening_KlasseDiagram
 
         public void SortProductsByPrice()
         {
-            
+            List<Product> _producten = new List<Product>();
+            foreach (var product1 in Producten)
+            {
+                foreach (var product2 in Producten)
+                {
+                    if (product1.Price > product2.Price )
+                    {
+                        _producten.Add(product1);
+                    }
+                }
+                
+            }
+            foreach (var product in _producten)
+            {
+                Console.WriteLine($"price: {product.Price}");
+            }
         }
     }
 }
