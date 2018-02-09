@@ -41,9 +41,8 @@ namespace AlgoritmiekOefeningKlasseDiagram
 
         public void SortProductsByPrice()
         {
-            for (int i = 0; i <= Producten.Count - 1; ++i)
-            {
-                if(i+1 == Producten.Count) { break; } // break out of loop when end is reached.
+            for (int i = 0; i <= Producten.Count - 1; ++i) {
+                if (i + 1 == Producten.Count)  break;  // break out of loop when end is reached.
                 if (Producten[i].Price > Producten[i + 1].Price)
                 {
                     Product tmp = Producten[i];
@@ -51,6 +50,16 @@ namespace AlgoritmiekOefeningKlasseDiagram
                     Producten[i] = Producten[i + 1]; // shifting 2 positions
                     Producten[i + 1] = tmp;
                 }
+                // TODO: when the loop is at the end loop backwards to sort again 
+                // TODO: fix so when 2 values are equal stay at the same position
+
+
+            }
+            
+
+            foreach (var product in Producten)
+            {
+                Console.WriteLine($"price: {product.Price}");
             }
         }
     }
