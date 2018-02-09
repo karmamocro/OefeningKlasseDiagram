@@ -38,5 +38,10 @@ namespace Algoritmiek_Oefening_KlasseDiagram
             Producten.ForEach((p) => { if (p.Price >= minimumPrice) _producten.Add(p); });
             return _producten;
         }
+
+        public void SortProductsByPrice()
+        {
+            
+        }
     }
 }
