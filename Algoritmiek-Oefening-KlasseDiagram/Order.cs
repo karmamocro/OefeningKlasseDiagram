@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algoritmiek_Oefening_KlasseDiagram
+namespace AlgoritmiekOefeningKlasseDiagram
 {
     public class Order
     {
@@ -41,18 +41,26 @@ namespace Algoritmiek_Oefening_KlasseDiagram
 
         public void SortProductsByPrice()
         {
+            List<Product> productsCopy = new List<Product>();
             List<Product> _producten = new List<Product>();
-            foreach (var product1 in Producten)
+
+            productsCopy.AddRange(Producten);
+            while (productsCopy.Count > 0)
             {
-                foreach (var product2 in Producten)
+                double max = productsCopy[0].Price;
+                for (int i = 0; i < productsCopy.Count -1; i++)
                 {
-                    if (product1.Price > product2.Price )
+                    if (productsCopy[i].Price > max)
                     {
-                        _producten.Add(product1);
+                        max = productsCopy[i].Price;
+                        _producten.Add(productsCopy[i]);
+                        productsCopy.Remove(productsCopy[i]);
+                        Console.WriteLine($"Wrote the price: {productsCopy[i].Price} to the list");
                     }
                 }
-                
             }
+            
+
             foreach (var product in _producten)
             {
                 Console.WriteLine($"price: {product.Price}");

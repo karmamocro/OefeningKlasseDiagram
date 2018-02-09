@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algoritmiek_Oefening_KlasseDiagram
+namespace AlgoritmiekOefeningKlasseDiagram
 {
     public class Product
     {

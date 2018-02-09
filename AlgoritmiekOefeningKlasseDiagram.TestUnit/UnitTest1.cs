@@ -1,24 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using AlgoritmiekOefeningKlasseDiagram;
 
-namespace AlgoritmiekOefeningKlasseDiagram
+namespace AlgoritmiekOefeningKlasseDiagram.TestUnit
 {
-    public partial class Form1 : Form
+    [TestClass]
+    public class OrderTest
     {
-        public Form1()
+        [TestMethod]
+        public void SortProductsByPrice_SortingProducts_EqualsToExpectectation()
         {
-            InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
+            // arrange
             var product1 = new Product("Juice", 3);
             var product2 = new Product("Cake", 1);
             var product3 = new Product("Milk", 2);
@@ -32,7 +24,8 @@ namespace AlgoritmiekOefeningKlasseDiagram
             newOrder.Producten.Add(product3);
             newOrder.Producten.Add(product4);
 
-            newOrder.SortProductsByPrice();
+
+            // assert
         }
     }
 }
