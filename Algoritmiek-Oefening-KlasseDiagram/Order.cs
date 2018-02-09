@@ -35,12 +35,7 @@ namespace Algoritmiek_Oefening_KlasseDiagram
         public List<Product> GetAllProducts(double minimumPrice)
         {
             List<Product> _producten = new List<Product>();
-            foreach (Product product in Producten)
-            {
-                _producten.Add(product.Price >= minimumPrice ? product : null);
-                //(product.Price >= minimumPrice) ? _producten.Add(product) : null 
-                //if(product.Price >= minimumPrice) { _producten.Add(product); }
-            }
+            Producten.ForEach((p) => { if (p.Price >= minimumPrice) _producten.Add(p); });
             return _producten;
         }
     }
