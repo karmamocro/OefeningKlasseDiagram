@@ -39,27 +39,22 @@ namespace AlgoritmiekOefeningKlasseDiagram
             return _producten;
         }
 
+        /// <summary>
+        /// Efficientie is niet zo goed.. log(n^2) 
+        /// </summary>
         public void SortProductsByPrice()
         {
             for (int i = 0; i <= Producten.Count - 1; ++i) {
-                if (i + 1 == Producten.Count)  break;  // break out of loop when end is reached.
-                if (Producten[i].Price > Producten[i + 1].Price)
+                for (int j = 0; j < Producten.Count -1 - i; j++) // ga voor de 2e keer er door heen om terug te komen
                 {
-                    Product tmp = Producten[i];
+                    if (Producten[j].Price > Producten[j + 1].Price) // controleer de grote
+                    {
+                        Product tmp = Producten[j]; // onthoud de temp waarde
 
-                    Producten[i] = Producten[i + 1]; // shifting 2 positions
-                    Producten[i + 1] = tmp;
+                        Producten[j] = Producten[j + 1]; // shifting 2 positions
+                        Producten[j + 1] = tmp;
+                    }
                 }
-                // TODO: when the loop is at the end loop backwards to sort again 
-                // TODO: fix so when 2 values are equal stay at the same position
-
-
-            }
-            
-
-            foreach (var product in Producten)
-            {
-                Console.WriteLine($"price: {product.Price}");
             }
         }
     }

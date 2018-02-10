@@ -23,7 +23,7 @@ namespace AlgoritmiekOefeningKlasseDiagram
             var product2 = new Product("Cake", 1);
             var product3 = new Product("Milk", 2);
             var product4 = new Product("Chips", 5);
-            //var product5 = new Product("Sugar", 2);
+            var product5 = new Product("Sugar", 2);
 
             var newOrder = new Order();
 
@@ -32,7 +32,7 @@ namespace AlgoritmiekOefeningKlasseDiagram
             newOrder.Producten.Add(product2);
             newOrder.Producten.Add(product3);
             newOrder.Producten.Add(product4);
-            //newOrder.Producten.Add(product5);
+            newOrder.Producten.Add(product5);
 
             newOrder.SortProductsByPrice();
         }
