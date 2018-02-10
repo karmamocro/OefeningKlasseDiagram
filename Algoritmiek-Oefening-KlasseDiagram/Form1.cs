@@ -35,6 +35,10 @@ namespace AlgoritmiekOefeningKlasseDiagram
             newOrder.Producten.Add(product5);
 
             newOrder.SortProductsByPrice();
+            foreach (var prod in newOrder.Producten)
+            {
+                Console.WriteLine($"{prod.Name} for {prod.Price}");
+            }
         }
     }
 }
