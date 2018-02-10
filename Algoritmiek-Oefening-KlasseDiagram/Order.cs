@@ -41,18 +41,19 @@ namespace AlgoritmiekOefeningKlasseDiagram
 
         /// <summary>
         /// Efficientie is niet zo goed.. log(n^2) 
+        /// tip volgende keer misschien recursive methode gebruiken waarbij ik een locatie update.
         /// </summary>
         public void SortProductsByPrice()
         {
             for (int i = 0; i <= Producten.Count - 1; ++i) {
-                for (int j = 0; j < Producten.Count -1 - i; j++) // ga voor de 2e keer er door heen om terug te komen
+                for (int y = 0; y < Producten.Count -1 - i; y++) // ga voor de 2e keer zo skippen we ook de laatste
                 {
-                    if (Producten[j].Price > Producten[j + 1].Price) // controleer de grote
+                    if (Producten[y].Price > Producten[y + 1].Price) // controleer de grote
                     {
-                        Product tmp = Producten[j]; // onthoud de temp waarde
+                        Product tmp = Producten[y]; // onthoud de temp waarde
 
-                        Producten[j] = Producten[j + 1]; // shifting 2 positions
-                        Producten[j + 1] = tmp;
+                        Producten[y] = Producten[y + 1]; // shifting 2 positions
+                        Producten[y + 1] = tmp;
                     }
                 }
             }
