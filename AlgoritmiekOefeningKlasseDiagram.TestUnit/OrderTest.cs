@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AlgoritmiekOefeningKlasseDiagram;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AlgoritmiekOefeningKlasseDiagram.TestUnit
 {
@@ -96,6 +98,34 @@ namespace AlgoritmiekOefeningKlasseDiagram.TestUnit
 
             // assert
             Assert.AreEqual<double>(AvgPriceExpected, AvgPriceActual);
+        }
+
+        [TestMethod]
+        public void GetAllProducts_Adding4ProductsDefiningingMinimum_ReturnTrue()
+        {
+            // arrange
+            var product1_4 = new Product("Juice", 3);
+            var product2_1 = new Product("Cake", 1);
+            var product3_2 = new Product("Milk", 2);
+            var product4_5 = new Product("Chips", 5);
+            var product5_3 = new Product("Sugar", 2);
+
+            var newOrder = new Order();
+
+            newOrder.Producten.Add(product1_4);
+            newOrder.Producten.Add(product2_1);
+            newOrder.Producten.Add(product3_2);
+            newOrder.Producten.Add(product4_5);
+            newOrder.Producten.Add(product5_3);
+
+            double MinimumPrice = 2;
+
+            // act
+            IEnumerable<Product> returnedList = newOrder.GetAllProducts(MinimumPrice).Where(p => p == product2_1);
+            bool result = returnedList.Any() ? true : false;
+
+            // assert
+            Assert.IsFalse(result);
         }
 
     }
