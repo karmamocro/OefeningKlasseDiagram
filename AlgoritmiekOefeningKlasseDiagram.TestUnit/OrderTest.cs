@@ -43,7 +43,7 @@ namespace AlgoritmiekOefeningKlasseDiagram.TestUnit
         }
 
         [TestMethod]
-        public void GiveMaximumPrice_Adding4NumbersAndEqualNumber_ReturnHighestNumber()
+        public void GiveMaximumPrice_Adding5Products_ReturnHighestNumber()
         {
             // arrange
             var product1_4 = new Product("Juice", 3);
@@ -69,5 +69,34 @@ namespace AlgoritmiekOefeningKlasseDiagram.TestUnit
             // assert
             Assert.AreEqual<double>(HighestPriceExpected, HighestPriceActual);
         }
+
+        [TestMethod]
+        public void GiveAvargePrice_Adding4Products_ReturnAvaragePrice()
+        {
+            // arrange
+            var product1_4 = new Product("Juice", 3);
+            var product2_1 = new Product("Cake", 1);
+            var product3_2 = new Product("Milk", 2);
+            var product4_5 = new Product("Chips", 5);
+            var product5_3 = new Product("Sugar", 2);
+
+            var newOrder = new Order();
+
+            newOrder.Producten.Add(product1_4);
+            newOrder.Producten.Add(product2_1);
+            newOrder.Producten.Add(product3_2);
+            newOrder.Producten.Add(product4_5);
+            newOrder.Producten.Add(product5_3);
+
+            double AvgPriceExpected = 2.6;
+
+            // act
+            var AvgPriceActual = newOrder.GiveAveragePrice();
+
+
+            // assert
+            Assert.AreEqual<double>(AvgPriceExpected, AvgPriceActual);
+        }
+
     }
 }
